@@ -58,18 +58,16 @@ export default function CourseSpotlight({ course }) {
   return (
     <Link href={`/course/${meta.metadata_key_hash || meta.id}`} passHref>
         <div className="h-96 w-80 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <a href="#">
-                <img className="rounded-t-lg" src='@/public/LandingPageImage.png' alt="" />
-                <Image src={image} height={900} alt='' />
-                {thumbnail && (
+            <div className='flex items-center justify-center'>
+              {thumbnail && (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
                     src={thumbnail}
                     alt=''
-                    className='h-8 w-12 absolute bottom-0 right-0 m-2'
+                    className='h-32 bottom-0 right-0 m-2'
                 />
-                )}
-            </a>
+              )}
+            </div>
             <div className="p-5">
                 <a href="#">
                     <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">{Course.CourseTitle}</h5>

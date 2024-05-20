@@ -8,7 +8,7 @@ import React, { useCallback } from 'react';
 // import logo from '@/public/logo.png';
 import image from '@/public/LandingPageImage.png';
 import useSpotlightCourses from '@/hooks/useSpotlightCourses';
-import CourseSpotlight from '@/components/Card';
+import CourseSpotlight from '@/components/cards/SpotlightCard';
 import Button from '@/components/Button';
 import Footer from '@/components/Footer';
 
@@ -18,7 +18,7 @@ export default function Home() {
 
   const spotlight = useSpotlightCourses();
   const popuarTopics = ["Cyber Security", "Web Developement", "Communications", "Artificial Intelligence", "Management Styles", "Agile Methodology", "Angular", "Leadership", "Data Science", "Unclassified Information", "Python"]
-
+  
   return (
     <>
       <Head>
@@ -43,7 +43,7 @@ export default function Home() {
         <div className='pt-2 max-w text-xl text-blue-custom text-center'> Explore a collection of courses hand-picked by our course providers</div>
         <div className='flex flex-col justify-center w-full mt-4 px-2 max-w-7xl mx-auto'>
           <div className='inline-flex overflow-x-auto gap-6 pb-4 custom-scroll'>
-            {spotlight.data?.map((course) => {
+            {spotlight.data && spotlight.data?.map((course) => {
               return <CourseSpotlight course={course} key={course.meta.id} />;
             })}
           </div>
@@ -97,7 +97,7 @@ export default function Home() {
         <div className='flex flex-col mx-auto'>
           <div className='w-full mt-8 px-2 max-w-7xl mx-auto overflow-y-auto pb-4 justify-center items-center justify-items-center place-content-center'>
             {popuarTopics.map((topic) => {
-              return <Button children={topic} id={topic}/>
+              return <Button children={topic} id={topic} onClick={() => router.push(`/search?keyword=${topic}&p=1`)}/>
             })}
           </div>
         </div>
