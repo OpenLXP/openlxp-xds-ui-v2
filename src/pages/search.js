@@ -12,6 +12,7 @@ import MoreLikeThis from '@/components/cards/MoreLikeThis';
 import SearchBar from '@/components/inputs/SearchBar';
 import SearchResult from '@/components/cards/SearchResult';
 import SelectList from '@/components/inputs/SelectList';
+import CourseSpotlight from '@/components/cards/SpotlightCard';
 
 export default function Search() {
   const router = useRouter();
@@ -118,6 +119,7 @@ export default function Search() {
     });
   }
 
+  console.log(data);
   function createLists() {
     if (!data?.aggregations) return null;
 
@@ -174,6 +176,17 @@ export default function Search() {
               data?.hits?.map((course) => (
                 <SearchResult result={course} key={course.meta.id} />
               ))}
+
+            <div className='max-w text-4xl text-center font-bold'> RECOMMENDED TO YOU</div>
+              {/* <div className='pt-2 max-w text-xl text-blue-custom text-center'> Explore a collection of courses hand-picked by our course providers</div> */}
+              <div className='flex flex-col justify-center w-full mt-4 px-2 max-w-7xl mx-auto'>
+                <div className='inline-flex overflow-x-auto gap-6 pb-4 custom-scroll'>
+                  {data && data.hits.map((course) => {
+                    return <CourseSpotlight course={course} key={course.meta.id} />;
+                  })}
+              </div>
+            </div>
+            
             <div className='py-8 sticky bottom-0 bg-gradient-to-t from-gray-50 mb-8'>
               {!isLoading && data && (
                 <Pagination
@@ -186,11 +199,7 @@ export default function Search() {
               )}
             </div>
           </div>
-          {/* <div className='relative col-span-4'>
-            <div className='sticky top-48'>
-              {data && data?.hits && <MoreLikeThis course={data?.hits[0]} />}
-            </div>
-          </div> */}
+
         </div>
       </div>
     </DefaultLayout>

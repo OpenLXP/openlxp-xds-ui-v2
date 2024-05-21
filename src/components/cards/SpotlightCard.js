@@ -57,7 +57,7 @@ export default function CourseSpotlight({ course }) {
 
   return (
     <Link href={`/course/${meta.metadata_key_hash || meta.id}`} passHref>
-        <div className="h-96 w-80 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div className="h-108 w-80 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <div className='flex items-center justify-center'>
               {thumbnail && (
                 // eslint-disable-next-line @next/next/no-img-element
