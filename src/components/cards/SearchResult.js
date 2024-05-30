@@ -26,7 +26,6 @@ export default function SearchResult({ result }) {
     );
   }, [Course_Instance, Technical_Information, config]);
 
-  console.log(thumbnail);
   const handleClick = useCallback(() => {
     // create the context
     const context = {

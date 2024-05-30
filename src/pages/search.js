@@ -119,7 +119,6 @@ export default function Search() {
     });
   }
 
-  console.log(data);
   function createLists() {
     if (!data?.aggregations) return null;
 
