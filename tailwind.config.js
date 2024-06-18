@@ -10,9 +10,10 @@ module.exports = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
       },
       colors: {
-        'header-blue': '#010E42',
+        'dark-blue': '#010E42',
         'purple-custom': '#562990',
         'blue-custom':'#135F9B',
+        'gray-custom': '#6B7280',
         'black-10': 'rgba(17, 24, 39, .1)',
       },
     },

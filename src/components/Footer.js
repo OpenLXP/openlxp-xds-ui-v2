@@ -86,7 +86,7 @@ export default function Footer({ location }) {
             </div>
             </div>
         </div>
-      <nav className={'mx-auto px-4 sm:px-6 bg-header-blue pl-8'}>
+      <nav className={'mx-auto px-4 sm:px-6 bg-dark-blue pl-8'}>
         <div className={'w-full py-4 inline-flex items-center justify-between'}>
           <div className={'flex items-center gap-4'}>
             {makeExternalLinks(leftLinks)}
