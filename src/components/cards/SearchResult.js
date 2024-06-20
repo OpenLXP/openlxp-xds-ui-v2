@@ -1,11 +1,12 @@
+import { useCallback, useMemo } from 'react';
+
+import SaveModal from '@/components/modals/SaveModal';
+/* eslint-disable no-undef */
 import { removeHTML } from '@/utils/cleaning';
 import { useAuth } from '@/contexts/AuthContext';
-import { useCallback, useMemo } from 'react';
+import { useConfig } from '@/hooks/useConfig';
 import { useRouter } from 'next/router';
 import { xAPISendStatement } from '@/utils/xapi/xAPISendStatement';
-import SaveModal from '@/components/modals/SaveModal';
-import { useConfig } from '@/hooks/useConfig';
-
 
 export default function SearchResult({ result }) {
   const { user } = useAuth();
@@ -54,7 +55,6 @@ export default function SearchResult({ result }) {
     <div className='flex flex-row pb-10 border-b border-gray-custom'>
     <div className='flex items-center justify-center'>
       {thumbnail && (
-        // eslint-disable-next-line @next/next/no-img-element
         <img
             src={thumbnail}
             alt=''

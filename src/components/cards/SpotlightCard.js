@@ -1,13 +1,14 @@
-import { backendHost } from '@/config/endpoints';
-import { useAuth } from '@/contexts/AuthContext';
 import { useCallback, useMemo } from 'react';
+
+import Image from 'next/image';
+import Link from 'next/link';
+import { backendHost } from '@/config/endpoints';
+import image from '@/public/LandingPageImage.png';
+import { removeHTML } from '@/utils/cleaning';
+import { useAuth } from '@/contexts/AuthContext';
 import { useConfig } from '@/hooks/useConfig';
 import { useRouter } from 'next/router';
 import { xAPISendStatement } from '@/utils/xapi/xAPISendStatement';
-import Link from 'next/link';
-import Image from 'next/image';
-import image from '@/public/LandingPageImage.png';
-import { removeHTML } from '@/utils/cleaning';
 
 export default function CourseSpotlight({ course }) {
   const { Course, meta, Technical_Information, Course_Instance } = {
@@ -60,7 +61,6 @@ export default function CourseSpotlight({ course }) {
         <div className="h-108 w-80 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <div className='flex items-center justify-center'>
               {thumbnail && (
-                // eslint-disable-next-line @next/next/no-img-element
                 <img
                     src={thumbnail}
                     alt=''
